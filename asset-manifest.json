@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/saylani-web/static/css/main.c08ed1bc.css",
+    "main.js": "/saylani-web/static/js/main.63793f99.js",
+    "static/media/introImage.png": "/saylani-web/static/media/introImage.410c8dca088bc3671743.png",
+    "static/media/img3.jpg": "/saylani-web/static/media/img3.cdfd26c1d750682888a3.jpg",
+    "static/media/img4.jpg": "/saylani-web/static/media/img4.a582e4813f5877fde923.jpg",
+    "static/media/footerLogo.png": "/saylani-web/static/media/footerLogo.4c38060aaf2432f1e80a.png",
+    "static/media/img2.jpg": "/saylani-web/static/media/img2.7f04b020add46516b2ad.jpg",
+    "static/media/img1.jpg": "/saylani-web/static/media/img1.a207d84662c1a6d48e0d.jpg",
+    "static/media/navbarLogo.png": "/saylani-web/static/media/navbarLogo.22bf709605809177256c.png",
+    "index.html": "/saylani-web/index.html",
+    "main.c08ed1bc.css.map": "/saylani-web/static/css/main.c08ed1bc.css.map",
+    "main.63793f99.js.map": "/saylani-web/static/js/main.63793f99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c08ed1bc.css",
+    "static/js/main.63793f99.js"
+  ]
+}
