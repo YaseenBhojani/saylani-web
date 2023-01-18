@@ -1,0 +1,935 @@
+// FONT FAMILY ------------------------------
+// font-family: 'Oswald', sans-serif;
+// font-family: 'Oxygen', sans-serif;
+// font-family: 'Ubuntu', sans-serif;
+// ------------------------------------------
+
+@import "./mixins", "./variables";
+
+// SCSS RESET ----------------------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+// NAVBAR COMPONENT -----------------------------------------------------------
+.navbar {
+  @include flex-box(flex-start);
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  // NAVBAR LOGO
+  img {
+    width: 12rem;
+    margin: 0 2rem;
+    cursor: pointer;
+  }
+
+  // NAVBAR MENU
+  .menu {
+    width: 100%;
+    border: none;
+    margin-left: 12rem;
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+
+
+    li:hover span,
+    li:hover svg,
+    li:hover::after,
+    li:active::after,
+    .ant-menu-item-selected span,
+    .ant-menu-item-selected svg,
+    .ant-menu-item-selected::after {
+      border-color: $red-color !important;
+      color: $red-color !important;
+    }
+
+    li {
+      color: $gray-color;
+      border-color: $gray-color !important;
+
+      span,
+      svg {
+        color: $gray-color !important;
+        border-color: $gray-color !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1490px) {
+    img {
+      width: 10rem;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .menu {
+      margin-left: 4rem;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+
+    .menu {
+      margin: 0 auto;
+      justify-content: center;
+    }
+  }
+}
+
+// FOOTER COMPONENT -->
+.footer {
+  color: #fff;
+  padding: 2rem 4rem;
+  @include flex-box(center, true);
+  background-color: $gray-color;
+
+  p {
+    margin-top: 2rem;
+    color: $light-gray-color;
+  }
+
+  .cloumn {
+    width: 100%;
+    @include flex-box(space-between);
+    list-style: none;
+
+    li {
+      list-style: none;
+
+
+      h4 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .first-item {
+      .logoBox {
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .mediaBox {
+      width: 100%;
+      @include flex-box(space-around);
+      margin-top: 1.5rem;
+
+      a {
+        color: #fff;
+      }
+
+      a {
+        @include flex-box;
+        cursor: pointer;
+        padding: 0.5rem;
+        border: 2px solid $red-color;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: $red-color;
+        }
+      }
+    }
+
+    .explore {
+      h4 {
+        margin: 0.8rem 0;
+      }
+
+      ul {
+        li {
+          padding: 0.2rem 0;
+          cursor: pointer;
+          color: $light-gray-color;
+
+          &:hover {
+            color: $red-color;
+          }
+        }
+      }
+    }
+
+    .contact {
+      h4 {
+        margin: 0.8rem 0;
+      }
+
+      ul {
+        li {
+          padding: 0.2rem 0;
+          color: $light-gray-color;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    padding: 1.5rem 2rem;
+  }
+
+  @media screen and (max-width: 790px) {
+    p {
+      margin-top: 4rem;
+    }
+
+    .cloumn {
+      flex-direction: column;
+      gap: 1rem;
+
+      .first-item {
+        @include flex-box;
+        gap: 5rem;
+
+        .mediaBox {
+          @include flex-box;
+          gap: 3rem;
+          margin: 0;
+        }
+      }
+    }
+
+    .explore {
+      text-align: center;
+
+      ul {
+        @include flex-box;
+        gap: 3rem;
+      }
+    }
+
+    .contact {
+      text-align: center;
+
+      ul {
+        @include flex-box;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    p {
+      margin-top: 4rem;
+    }
+
+    .cloumn {
+      .first-item {
+        gap: 2rem;
+
+        .mediaBox {
+          gap: 1rem;
+        }
+      }
+    }
+
+    .explore {
+      ul {
+        gap: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .cloumn {
+      .first-item {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+// HOME PAGE -------------------------------------------------------------
+.home {
+
+  // INTRODUCTION COMPONENT -->
+  .introduction {
+    padding: 0 3rem;
+    @include flex-box(space-between);
+    gap: 1rem;
+    min-height: 90vh;
+
+    .textBox {
+
+      h1,
+      h2,
+      h3 {
+        color: $gray-color;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        font-family: 'Oxygen', sans-serif;
+
+      }
+
+      p {
+        font-size: 1.3rem;
+        font-family: 'Oxygen', sans-serif;
+      }
+
+      .text-red {
+        color: #c1262c;
+      }
+
+      button {
+        @include flex-box;
+        background-color: $black-color;
+        font-weight: bold;
+        color: #fff;
+        padding: 0;
+        margin-top: 4rem;
+        font-size: 1.2rem;
+        padding: 1.6rem 3rem;
+        overflow: hidden;
+        font-family: 'Ubuntu', sans-serif;
+        border: 2px solid black;
+        border-right: 10px solid $red-color;
+        border-radius: 0;
+
+        &:hover {
+          border: none;
+          border-right: 10px solid $pink-color;
+          color: $pink-color;
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    .imgBox {
+      width: 45vw;
+
+      img {
+        width: inherit;
+        border-radius: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 1350px) {
+      padding: 1rem 2rem;
+
+      .textBox {
+        h1 {
+          font-size: 2.4rem;
+        }
+
+        h2 {
+          margin: 1rem 0;
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        button {
+          gap: 0.3rem;
+          margin-top: 3rem;
+          font-size: 1.2rem;
+          padding: 1.2rem 2.5rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1020px) {
+      padding: 1rem 1.5rem;
+
+      .textBox {
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          margin: 1rem 0;
+          font-size: 1.2rem;
+        }
+
+        p {
+          font-size: 0.8rem;
+        }
+
+        button {
+          margin-top: 2rem;
+          font-size: 1rem;
+          padding: 1rem 2rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 835px) {
+      padding: 1rem;
+      height: 100%;
+      @include flex-box(center, true);
+      text-align: center;
+
+      .textBox {
+        h2 {
+          margin-top: 1rem 0 0 0;
+        }
+
+        p {
+          padding-bottom: 1rem;
+          font-size: 1rem;
+        }
+
+        button {
+          margin: auto;
+        }
+      }
+
+      .imgBox {
+        width: 100vw;
+
+        img {
+          width: inherit;
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+
+  // NEWS COMPONENT -->
+  .news {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      @include home-sec-head;
+    }
+
+    // Slider Component -->
+    .slider {
+      background-color: $black-color;
+      color: #fff;
+      width: 60%;
+      margin: auto;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+      div {
+        @include flex-box();
+        padding: 0 0 0.5rem 0;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 50vh;
+          object-fit: cover;
+        }
+
+        h3 {
+          margin: 0.8rem 0;
+          font-size: 1.8rem;
+        }
+
+        p {
+          padding: 0 0.8rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1320px) {
+      .slider {
+        div {
+          h2 {
+            font-size: 1.5rem;
+          }
+
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 860px) {
+      .slider {
+        width: 80%;
+
+        div {
+          h2 {
+            font-size: 1.2rem;
+          }
+
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .slider {
+        width: 95%;
+      }
+    }
+  }
+
+  //CORSES COMPONENT -->
+  .courses {
+    @include flex-box("center", true);
+    width: 80%;
+    margin: 3rem auto;
+
+    h2 {
+      @include home-sec-head;
+      margin-top: 2rem
+    }
+
+    button {
+      @include flex-box;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+      padding: 1.2rem 4rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      background-color: $black-color;
+      color: white;
+
+      &:hover {
+        transition: all 100ms ease;
+        background-color: $gray-color;
+        color: #fff;
+        border-left: 5px solid $red-color;
+        transform: translateY(-3px)
+      }
+    }
+
+    // Cards Component -->
+    .cards {
+      @include image-card;
+    }
+  }
+}
+
+// ABOUT PAGE -------------------------------------------------------------
+
+.about-page {
+  @include flex-box(center, true);
+
+  h2 {
+    @include secondary-heading;
+  }
+
+  .about-info {
+    h3 {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 2rem;
+      color: $gray-color;
+      font-style: italic;
+      font-weight: bolder;
+      font-family: 'Oxygen', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .text-container {
+      margin: 4rem 3rem;
+
+      h4 {
+        font-size: 1.6rem;
+        margin: 0.4rem 0;
+        font-family: 'Ubuntu', sans-serif;
+
+        &::before {
+          content: " --- ";
+          color: $red-color;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        font-family: 'Oxygen', sans-serif;
+      }
+    }
+  }
+}
+
+// NEWS PAGE --------------------------------------------------------------
+// COURSES PAGE ------------------------------------------------------------
+.news-page,
+.courses-page {
+  @include defualtCardPage;
+}
+
+// CONTACT PAGE -------------------------------------------------------------
+.contact-page {
+  @include flex-box(center, true);
+  justify-content: flex-start;
+  gap: 3rem;
+  min-height: 100vh;
+
+  h2 {
+    @include secondary-heading;
+  }
+
+  form {
+    width: 60%;
+
+    div {
+      margin: 0.6rem 0;
+    }
+
+    .intro-box {
+      @include flex-box;
+      gap: 2rem;
+
+      div {
+        @include flex-box(center, true);
+        align-items: flex-start;
+        width: 100%;
+
+        label {
+          @include label;
+        }
+
+        input {
+          @include input;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
+    .form-item {
+      @include flex-box(center, true);
+      align-items: flex-start;
+
+      label {
+        @include label;
+      }
+
+      input,
+      textArea {
+        @include input;
+      }
+    }
+
+    .btn-box {
+      width: 100%;
+      @include flex-box;
+
+      button {
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+        background-color: $red-color;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 300ms ease;
+        margin-top: 1rem;
+
+        &:hover,
+        &:active {
+          color: $black-color;
+          transform: translateY(-10px);
+          width: 99%;
+        }
+      }
+    }
+
+    @media screen and (max-width: 760px) {
+      width: 90%;
+    }
+  }
+}
+
+// NoMatch PAGE -------------------------------------------------------------
+.noMatchPage {
+  text-align: center;
+
+  h2 {
+    margin: 3rem 0 2rem 0;
+    font-size: 2rem;
+    font-style: italic;
+  }
+
+  button {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    border-bottom: 2px solid $gray-color;
+    color: $gray-color;
+
+    &:hover {
+      color: $red-color;
+      border-color: $red-color;
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    button {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media screen and (max-width: 315px) {
+    h2 {
+      font-size: 1rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.errorField {
+  label {
+    color: red !important;
+
+    &::after {
+      content: ": required";
+    }
+  }
+
+  input {
+    border-color: red !important;
+  }
+
+  textArea {
+    border-color: red !important;
+  }
+}
+
+.loading-spinner {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 30vh;
+  padding: 30vh 0 0 50vw;
+}
+
+// STUDENT PAGE -----------------------------------------------------------
+
+.studentPage {
+  @include flex-box(flex-start, true);
+  min-height: 100vh;
+
+  .message {
+    width: 80%;
+    margin-top: 1rem;
+  }
+
+  .courseIntro {
+    margin: 2rem 1rem;
+    height: 15rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+      margin: 1rem 0;
+      text-align: center;
+
+      @media screen and (max-width: 560px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .pageNotFound {
+    margin-top: 20vh;
+  }
+
+  .student-form {
+    margin-right: 16vw;
+    width: 50%;
+
+    .stdFormBtn {
+      width: 100%;
+      border: none;
+      font-size: 1rem;
+      margin-left: 16.7vw;
+      letter-spacing: 1px;
+      font-weight: 600;
+
+      &:hover {}
+
+      @media screen and (max-width: 574px) {
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: 560px) {
+      width: 100%;
+      margin: 0;
+      padding: 0 2rem;
+    }
+  }
+}
+
+// STUDENT Detail PAGE -----------------------------------------------------------
+.studentDetail {
+  min-height: 90vh;
+
+  h2 {
+    @include secondary-heading;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+
+  .inputBox {
+    @include flex-box;
+    gap: 1rem;
+    width: 40%;
+    margin: 0 auto;
+
+
+
+    .std-inp {
+      padding: 0.6rem;
+      box-shadow: $blue-color 0px 0px 0px 0.8px;
+
+      &:hover,
+      &:focus {
+        border-color: $black-color;
+      }
+    }
+
+    .std-btn {
+      background-color: $black-color;
+      padding: 0.8rem 1.5rem;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-radius: 5px;
+
+      &:hover,
+      &:focus {
+        background-color: $red-color;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      }
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+    }
+
+  }
+
+  table {
+    display: table;
+    width: 50%;
+    background-color: #fff !important;
+    border-radius: 12px;
+    margin: 2rem auto !important;
+    background-color: $gray-color !important;
+
+    .avatar {
+      width: 10rem;
+      border-radius: 50%;
+      border: 5px solid $gray-color;
+    }
+
+    &,
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+      text-align: center;
+      margin: auto;
+      border: 1px solid #dedede;
+      padding: 1rem;
+      font-size: 1.2rem;
+      width: 50%;
+      background-color: #dedede;
+    }
+
+    td {
+      border-top: none;
+    }
+
+    .certificate {
+      width: 80%;
+    }
+
+
+  }
+
+
+  @media screen and (max-width: 900px) {
+    .inputBox {
+      width: 60%;
+    }
+
+    table {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+
+    .inputBox {
+      width: 90%;
+      gap: 10px;
+      flex-direction: column;
+
+      .std-btn {
+        // padding: 0.8rem 1.5rem;
+        width: 100%;
+      }
+    }
+
+    table {
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+
+      thead,
+      tbody,
+      tfoot,
+      tr,
+      td,
+      th {
+        padding: 10px;
+        font-size: 1rem;
+        width: 50%;
+        background-color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+//  MIXINS   ----------------------------------------------------------------
+@import "./variables";
+
+// flex-box -->
+@mixin flex-box($content: center, $column: false) {
+  display: flex;
+
+  @if $column {
+    flex-direction: column;
+  }
+
+  align-items: center;
+  justify-content: $content;
+}
+
+@mixin home-sec-head {
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  color: $blue-color;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+
+  &::before,
+  &::after {
+    content: " _______ ";
+    color: $red-color;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 1.8rem;
+
+    &::before,
+    &::after {
+      content: " ____ ";
+    }
+  }
+}
+
+@mixin secondary-heading {
+  margin: 2rem 0;
+  text-align: center;
+  width: 100vw;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+  color: $red-color;
+  font-family: 'Ubuntu', sans-serif;
+
+  &:after,
+  &:before {
+    content: " ";
+    display: block;
+    height: 5px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid $black-color;
+    border-top: 1px solid $black-color;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 22px;
+  }
+}
+
+@mixin label {
+  margin: 0.3rem 0;
+  color: $gray-color;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+@mixin input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid $light-gray-color;
+  color: $blue-color;
+  caret-color: $red-color;
+
+  &:focus,
+  &:hover {
+    border: 1px solid $red-color;
+  }
+}
+
+@mixin defualtCardPage {
+  @include flex-box(center, true);
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  h2 {
+    @include secondary-heading;
+  }
+
+  .cards {
+    @include flex-box();
+    gap: 2rem;
+    width: 80%;
+    flex-wrap: wrap;
+
+    img {
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+}
+
+@mixin image-card {
+  @include flex-box();
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  img {
+    height: 250px;
+    object-fit: cover;
+  }
+}
